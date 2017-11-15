@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strncpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/09 13:23:44 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/10 18:32:40 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strncpy(char *dst, const char *src, size_t len)
 {
-	char *str;
+	size_t	i;
 
-	if (ac != 2)
+	i = 0;
+	while (src[i] && i < len)
 	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
+		dst[i] = src[i];
+		i++;
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
-	return (0);
+	while (i < len)
+	{
+		dst[i] = '\0';
+		i++;
+	}
+	return (dst);
 }

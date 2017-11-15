@@ -13,8 +13,9 @@
 NAME = fillit
 
 SRC = main.c \
-	reader.c \
+	ft_reader.c \
 	checker.c \
+	ft_create_elem.c\
 #	solver.c \
 #	printer.c
 OBJ = $(SRC:.c=.o)

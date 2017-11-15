@@ -1,29 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isprint.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/08 14:44:46 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/10 18:14:00 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
-
-int	main(int ac, char **av)
+int	ft_isprint(int c)
 {
-	char *str;
-
-	if (ac != 2)
-	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
-	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
+	if (c > 31 && c < 127)
+		return (1);
 	return (0);
 }

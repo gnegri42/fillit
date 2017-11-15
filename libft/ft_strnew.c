@@ -1,29 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/10 10:35:43 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/13 12:08:16 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strnew(size_t size)
 {
-	char *str;
+	char	*str;
 
-	if (ac != 2)
-	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
-	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
-	return (0);
+	str = (char*)malloc(size + 1);
+	if (str == NULL)
+		return (NULL);
+	ft_memset(str, (int)'\0', size + 1);
+	return (str);
 }

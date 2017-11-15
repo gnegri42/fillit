@@ -1,29 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putnbr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/08 11:00:55 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/13 11:17:05 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	ft_putnbr(int n)
 {
-	char *str;
-
-	if (ac != 2)
+	if (n == -2147483648)
 	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
+		ft_putstr("-2147483648");
+		return ;
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
-	return (0);
+	if (n < 0)
+	{
+		ft_putchar('-');
+		n = -n;
+	}
+	if (n > 9)
+	{
+		ft_putnbr(n / 10);
+		ft_putnbr(n % 10);
+	}
+	else
+		ft_putchar(n + '0');
 }

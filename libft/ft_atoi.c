@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/08 17:23:46 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/08 17:54:22 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_atoi(const char *str)
 {
-	char *str;
+	int v;
+	int i;
+	int posneg;
 
-	if (ac != 2)
+	i = 0;
+	v = 0;
+	posneg = 1;
+	while (str[i] == '\n' || str[i] == '\t' || str[i] == '\v' ||
+			str[i] == '\r' || str[i] == '\f' || str[i] == ' ')
+		i++;
+	if (str[i] == '-')
+		posneg = -1;
+	if (str[i] == '+' || str[i] == '-')
+		i++;
+	while (str[i] >= '0' && str[i] <= '9')
 	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
+		v = v * 10 + str[i] - 48;
+		i++;
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
-	return (0);
+	return (posneg * v);
 }

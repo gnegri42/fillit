@@ -1,29 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memcmp.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/09 17:58:02 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/13 10:22:01 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+int	ft_memcmp(const void *s1, const void *s2, size_t n)
 {
-	char *str;
+	size_t				i;
+	const unsigned char	*tmp_s1;
+	const unsigned char	*tmp_s2;
 
-	if (ac != 2)
-	{
-		ft_putstr("usage : fillit target_file\n");
+	if (s1 == s2 || n == 0)
 		return (0);
+	tmp_s1 = s1;
+	tmp_s2 = s2;
+	i = 0;
+	while (n > 0)
+	{
+		if (tmp_s1[i] != tmp_s2[i])
+			return (tmp_s1[i] - tmp_s2[i]);
+		if (n)
+		{
+			i++;
+			n--;
+		}
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
 	return (0);
 }

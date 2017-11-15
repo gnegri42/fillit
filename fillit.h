@@ -6,7 +6,7 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:11:56 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:40:37 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/15 15:26:57 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define BUF_SIZE 32
+#define BUF_SIZE 21
 
 typedef struct	s_tetris
 {
@@ -26,7 +26,8 @@ typedef struct	s_tetris
 	struct s_tetris *next;
 }				t_tetris;
 
-char	*reader(void);
-int		checker(char *str);
+char		*ft_reader(char *av);
+int			checker(char *str);
+t_tetris	*ft_create_elem(char *data);
 
 #endif

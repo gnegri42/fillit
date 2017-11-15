@@ -1,29 +1,36 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strlcat.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/09 11:17:44 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/10 19:09:56 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+size_t	ft_strlcat(char *dst, const char *src, size_t size)
 {
-	char *str;
+	size_t	i;
+	size_t	src_len;
+	size_t	dst_len;
 
-	if (ac != 2)
+	dst_len = ft_strlen(dst);
+	src_len = ft_strlen(src);
+	i = 0;
+	if (size <= dst_len)
+		return (src_len + size);
+	while (dst[i] != '\0' && i < size - 1)
+		i++;
+	while (i < size - 1 && *src)
 	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
+		dst[i] = *src;
+		i++;
+		src++;
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
-	return (0);
+	dst[i] = '\0';
+	return (dst_len + src_len);
 }

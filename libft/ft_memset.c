@@ -1,29 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/09 13:45:03 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/13 16:00:20 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memset(void *b, int c, size_t len)
 {
-	char *str;
+	size_t			i;
+	char			*ptr_b;
+	unsigned char	tmp_char;
 
-	if (ac != 2)
+	i = 0;
+	ptr_b = (char *)b;
+	tmp_char = (unsigned char)c;
+	while (i < len)
 	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
+		ptr_b[i] = tmp_char;
+		i++;
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
-	return (0);
+	return (b);
 }

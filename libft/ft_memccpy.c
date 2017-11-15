@@ -1,29 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/09 15:27:50 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/13 16:18:42 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	char *str;
+	size_t	i;
 
-	if (ac != 2)
+	i = 0;
+	while (i < n)
 	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
+		((unsigned char *)dst)[i] = ((unsigned char *)src)[i];
+		if (((unsigned char *)src)[i] == (unsigned char)c)
+			return (&dst[i + 1]);
+		i++;
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
 	return (0);
 }

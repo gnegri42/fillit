@@ -1,29 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strmap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/10 11:01:50 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/13 15:56:57 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strmap(char const *s, char (*f)(char))
 {
-	char *str;
+	char			*f_str;
+	unsigned int	i;
+	unsigned int	len;
 
-	if (ac != 2)
+	if (!s || !f)
+		return (NULL);
+	i = 0;
+	len = ft_strlen(s);
+	if (s != NULL && f != NULL)
 	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
+		f_str = (char *)malloc(sizeof(char) * (len + 1));
+		if (f_str == NULL)
+			return (NULL);
+		while (s[i])
+		{
+			f_str[i] = f(s[i]);
+			i++;
+		}
+		f_str[i] = '\0';
+		return (f_str);
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
-	return (0);
+	return (NULL);
 }

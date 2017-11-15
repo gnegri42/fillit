@@ -1,29 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_isalnum.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/08 14:17:07 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/08 14:36:15 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
-
-int	main(int ac, char **av)
+int	ft_isalnum(int c)
 {
-	char *str;
-
-	if (ac != 2)
-	{
-		ft_putstr("usage : fillit target_file\n");
+	if (c < '0' || c > 'z')
 		return (0);
-	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
-	return (0);
+	if (c > 'Z' && c < 'a')
+		return (0);
+	else if (c > '9' && c < 'A')
+		return (0);
+	return (1);
 }

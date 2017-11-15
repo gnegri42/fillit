@@ -1,29 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/09 13:30:30 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/09 13:43:44 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+char	*ft_strdup(const char *s1)
 {
-	char *str;
+	char	*cpy;
+	int		len;
 
-	if (ac != 2)
+	len = ft_strlen(s1);
+	cpy = (char *)malloc(sizeof(char) * len + 1);
+	if (cpy != NULL)
 	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
+		ft_strcpy(cpy, s1);
+		return (cpy);
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
-	return (0);
+	else
+		return (0);
 }

@@ -1,29 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_memchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/09 17:26:44 by bmuselet          #+#    #+#             */
+/*   Updated: 2017/11/13 18:36:30 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "fillit.h"
-#include "libft/libft.h"
+#include "libft.h"
 
-int	main(int ac, char **av)
+void	*ft_memchr(const void *s, int c, size_t n)
 {
-	char *str;
+	size_t			i;
+	unsigned char	*ptr;
+	unsigned char	tmp_c;
 
-	if (ac != 2)
+	i = 0;
+	ptr = (unsigned char *)s;
+	tmp_c = (unsigned char)c;
+	while (n--)
 	{
-		ft_putstr("usage : fillit target_file\n");
-		return (0);
+		if (ptr[i] == tmp_c)
+			return (ptr + i);
+		i++;
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
-	return (0);
+	return (NULL);
 }
