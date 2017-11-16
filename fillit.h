@@ -6,7 +6,7 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:11:56 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 15:26:57 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/16 11:01:05 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,14 @@
 
 typedef struct	s_tetris
 {
-	char *data;
-	struct s_tetris *next;
+	char				**tetrimino;
+	char				letter;
+	int					x;
+	int					y;
+	struct s_tetrimino	*next;
 }				t_tetris;
 
 char		*ft_reader(char *av);
-char		*reader(char *av);
 int			ft_checker(char *str);
 t_tetris	*ft_create_elem(char *data);
 
