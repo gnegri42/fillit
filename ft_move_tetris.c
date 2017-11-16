@@ -12,39 +12,69 @@
 
 #include "fillit.h"
 #include "libft/libft.h"
-
-char	*ft_move_left(char	*str)
-{
-
-}
-
+#include <stdio.h>
 char	*ft_move_up(char *str)
 {
 	int i;
-	int line;
-	int col;
+	int decal;
 
 	i = 0;
-	line = 0;
+	decal = 0;
+	if (str == NULL)
+		return (0);
 	while (str[i] != '\0')
 	{
-		while (line < 4)
+		if (str[i] == '#')
 		{
-			col = 0;
-			while (col < 4)
-			{
-				if (str[i] != '#' && str[i] != '\0')
-				{
-					col++;
-					i++;
-				}
-				if (str[i] == '#')
-				{
-					
-				}
-			}
+			decal = i / 5;
+			//printf("%d\n", decal);
+			i = 20;
 		}
+		i++;
 	}
+	i = 0;
+	while (str[i] != '\0' && decal > 0)
+	{
+		if (str[i] == '#')
+		{
+			str[i - 5] = str[i];
+			str[i] = '.';
+		}
+		i++;
+	}
+	return (str);
+}
+
+char	*ft_move_left(char *str)
+{
+	int i;
+	int decal;
+
+	i = 0;
+	decal = 0;
+	if (str == NULL)
+		return (0);
+	while (i < 3)
+	{
+		if (str[i] == '#' || str[i + 5] == '#' || str[i + (5 * 2)] == '#' 
+			|| str[i + (5 * 3)] == '#')
+			i = 3;
+		else
+			decal++;
+		i++;
+	}
+	i = 0;
+	while (str[i] != '\0' && decal > 0)
+	{
+		printf("%d\n", decal);
+		if (str[i] == '#')
+		{
+			str[i - decal] = str[i];
+			str[i] = '.';
+		}
+		i++;
+	}
+	return (str);
 }
 
 void		ft_move_tetris(t_tetris *first)
@@ -54,7 +84,8 @@ void		ft_move_tetris(t_tetris *first)
 	ptr = first;
 	while (ptr)
 	{
-		ptr->tetris = ft_upleft(ptr->tetris);
+		ptr->tetris = ft_move_left(ptr->tetris);
+		ptr->tetris = ft_move_up(ptr->tetris);
 		ptr = ptr->next;
 	}
 	//return (first);

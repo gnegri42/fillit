@@ -29,13 +29,13 @@ int	main(int ac, char **av)
 	if ((ft_checker(tab_tetris)) == 0)
 		ft_putstr("error");
 	first = ft_create_list(tab_tetris);
-/*	while (first != NULL)
+	ft_free_tab(tab_tetris);
+	ft_move_tetris(first);
+	while (first != NULL)
 	{
 		printf("%s\n", first->tetris);
 		first = first->next;
-	}*/
-	ft_free_tab(tab_tetris);
-	ft_move_tetris(first);
+	}
 //	while (i < 5)
 //		printf("%s\n", tab_tetris[i++]);
 	return (0);
