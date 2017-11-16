@@ -27,6 +27,8 @@ int	main(int ac, char **av)
 	tab_tetris = ft_reader(av[1]);
 	while (i < 5)
 		printf("%s\n", tab_tetris[i++]);
-	ft_checker(tab_tetris);
+	if ((ft_checker(tab_tetris)) == 0)
+		ft_putstr("error");
+	
 	return (0);
 }

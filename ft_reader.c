@@ -27,12 +27,13 @@ char	**ft_fill_tab(char **tab_tetris, int num_tetris, char *str)
 		tab_tetris[j] = (char *)malloc(sizeof (char) * 21);
 		if (tab_tetris[j] == NULL)
 			return (0);
-		while (k < 20)
+		while (k < 19)
 		{
 			tab_tetris[j][k] = str[i];
 			k++;
 			i++;
 		}
+		i++;
 		tab_tetris[j][k] = '\0';
 		i++;
 		j++;

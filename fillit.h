@@ -20,14 +20,14 @@
 
 #define BUF_SIZE 4096
 
-typedef struct	s_tetris
+typedef struct			s_tetris
 {
-	char				**tetrimino;
+	char				*tetrimino;
 	char				letter;
 	int					x;
 	int					y;
 	struct s_tetrimino	*next;
-}				t_tetris;
+}						t_tetris;
 
 char		**ft_reader(char *av);
 int			ft_checker(char **tab_tetris);
