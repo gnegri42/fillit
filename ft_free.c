@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_create_elem.c                                   :+:      :+:    :+:   */
+/*   ft_free.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: gnegri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/15 15:20:50 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 15:27:34 by bmuselet         ###   ########.fr       */
+/*   Created: 2017/11/16 15:32:22 by gnegri            #+#    #+#             */
+/*   Updated: 2017/11/16 15:32:23 by gnegri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
+#include "libft/libft.h"
 
-t_tetris	*ft_create_elem(char *data)
+void	ft_free_tab(char **tab_tetris)
 {
-	t_tetris	*new_elem;
+	int i;
+	int	j;
 
-	new_elem = NULL;
-	new_elem = (t_tetris*)malloc(sizeof(t_tetris) * 1);
-	if (new_elem)
-	{
-		new_elem->data = data;
-		new_elem->next = NULL;
-	}
-	return (new_elem);
+	i = 0;
+	j = 0;
+	while (tab_tetris[j++] != NULL)
+	while (i < j)
+		ft_strdel(&tab_tetris[i++]);
+	ft_strdel(&tab_tetris[i]);
 }

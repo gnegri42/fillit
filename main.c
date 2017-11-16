@@ -15,8 +15,9 @@
 #include <stdio.h>
 int	main(int ac, char **av)
 {
-	char **tab_tetris;
-	int i;
+	char 		**tab_tetris;
+	int 		i;
+	t_tetris	*first;
 
 	i = 0;
 	if (ac != 2)
@@ -25,10 +26,17 @@ int	main(int ac, char **av)
 		return (0);
 	}
 	tab_tetris = ft_reader(av[1]);
-	while (i < 5)
-		printf("%s\n", tab_tetris[i++]);
 	if ((ft_checker(tab_tetris)) == 0)
 		ft_putstr("error");
-	
+	first = ft_create_list(tab_tetris);
+/*	while (first != NULL)
+	{
+		printf("%s\n", first->tetris);
+		first = first->next;
+	}*/
+	ft_free_tab(tab_tetris);
+	ft_move_tetris(first);
+//	while (i < 5)
+//		printf("%s\n", tab_tetris[i++]);
 	return (0);
 }

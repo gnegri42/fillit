@@ -22,15 +22,17 @@
 
 typedef struct			s_tetris
 {
-	char				*tetrimino;
+	char				*tetris;
 	char				letter;
 	int					x;
 	int					y;
-	struct s_tetrimino	*next;
+	struct s_tetris 	*next;
 }						t_tetris;
 
 char		**ft_reader(char *av);
 int			ft_checker(char **tab_tetris);
-//t_tetris	*ft_create_elem(char *data);
+t_tetris	*ft_create_list(char **tab_tetris);
+void		ft_free_tab(char **tab_tetris);
+void	ft_move_tetris(t_tetris *list_tetris);
 
 #endif

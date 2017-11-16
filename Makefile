@@ -14,8 +14,10 @@ NAME = fillit
 
 SRC = main.c \
 	ft_reader.c \
-	checker.c \
-	ft_create_elem.c\
+	ft_checker.c \
+	ft_create_list.c\
+	ft_free.c\
+	ft_move_tetris.c\
 #	solver.c \
 #	printer.c
 OBJ = $(SRC:.c=.o)
