@@ -29,8 +29,8 @@ typedef struct	s_tetris
 	struct s_tetrimino	*next;
 }				t_tetris;
 
-char		*ft_reader(char *av);
-int			ft_checker(char *str);
-t_tetris	*ft_create_elem(char *data);
+char		**ft_reader(char *av);
+int			ft_checker(char **tab_tetris);
+//t_tetris	*ft_create_elem(char *data);
 
 #endif

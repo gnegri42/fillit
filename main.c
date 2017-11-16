@@ -12,18 +12,21 @@
 
 #include "fillit.h"
 #include "libft/libft.h"
-
+#include <stdio.h>
 int	main(int ac, char **av)
 {
-	char *str;
+	char **tab_tetris;
+	int i;
 
+	i = 0;
 	if (ac != 2)
 	{
 		ft_putstr("usage : fillit target_file\n");
 		return (0);
 	}
-	str = ft_reader(av[1]);
-	ft_putstr(str);
-	checker(str);
+	tab_tetris = ft_reader(av[1]);
+	while (i < 5)
+		printf("%s\n", tab_tetris[i++]);
+	ft_checker(tab_tetris);
 	return (0);
 }

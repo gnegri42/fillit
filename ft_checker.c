@@ -13,7 +13,7 @@
 #include "fillit.h"
 #include "libft/libft.h"
 
-int	ft_checker(char *str)
+int		ft_checker(char **tab_tetris)
 {
 	if (!str)
 		return (0);
