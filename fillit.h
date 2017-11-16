@@ -18,7 +18,7 @@
 #include <sys/stat.h>
 #include <fcntl.h>
 
-#define BUF_SIZE 21
+#define BUF_SIZE 4096
 
 typedef struct	s_tetris
 {
@@ -27,7 +27,8 @@ typedef struct	s_tetris
 }				t_tetris;
 
 char		*ft_reader(char *av);
-int			checker(char *str);
+char		*reader(char *av);
+int			ft_checker(char *str);
 t_tetris	*ft_create_elem(char *data);
 
 #endif
