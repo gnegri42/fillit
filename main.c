@@ -6,7 +6,7 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 14:54:21 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/17 11:32:24 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ int	main(int ac, char **av)
 	if ((ft_checker(tab_tetris)) == 0)
 		ft_putstr("error");
 	first = ft_create_list(tab_tetris);
-	ft_free_tab(tab_tetris);
+//	ft_free_tab(tab_tetris);
 	ft_move_tetris(first);
 	while (first != NULL)
 	{
@@ -37,6 +37,7 @@ int	main(int ac, char **av)
 		printf("\n");
 		first = first->next;
 	}
+	ft_solver_tools(5);
 //	while (i < 5)
 //		printf("%s\n", tab_tetris[i++]);
 	return (0);

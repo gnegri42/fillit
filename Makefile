@@ -6,7 +6,7 @@
 #    By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 11:22:23 by bmuselet          #+#    #+#              #
-#    Updated: 2017/11/15 12:43:59 by bmuselet         ###   ########.fr        #
+#    Updated: 2017/11/17 11:29:21 by bmuselet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ SRC = main.c \
 	ft_create_list.c\
 	ft_free.c\
 	ft_move_tetris.c\
-#	solver.c \
+	ft_solver_tools.c \
 #	printer.c
 OBJ = $(SRC:.c=.o)
 CC = gcc
