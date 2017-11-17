@@ -13,11 +13,27 @@
 #include "fillit.h"
 #include "libft/libft.h"
 #include <stdio.h>
-int	main(int ac, char **av)
+
+int		ft_tetris_nb(t_tetris *first)
+{
+	int	i;
+
+	i = 0;
+	while (first != NULL)
+	{
+		first = first->next;
+		i++;
+	}
+	return (i - 1);	
+}
+
+int		main(int ac, char **av)
 {
 	char 		**tab_tetris;
 	int 		i;
 	t_tetris	*first;
+	t_tetris	*tmp;
+	char		*grid_solved;
 
 	i = 0;
 	if (ac != 2)
@@ -31,14 +47,17 @@ int	main(int ac, char **av)
 	first = ft_create_list(tab_tetris);
 //	ft_free_tab(tab_tetris);
 	ft_move_tetris(first);
+	tmp = first;
 	while (first != NULL)
 	{
-		printf("%s\n", first->tetris);
-		printf("\n");
+		ft_to_letter(first);
+		//printf("%s\n", first->tetris);
+		//printf("\n");
 		first = first->next;
 	}
-	ft_solver_tools(5);
-//	while (i < 5)
-//		printf("%s\n", tab_tetris[i++]);
+	first = tmp;
+	i = ft_tetris_nb(first);
+	//printf("%d", i);
+	grid_solved = ft_solver(first, ft_tetris_nb(first));
 	return (0);
 }

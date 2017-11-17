@@ -18,7 +18,9 @@ SRC = main.c \
 	ft_create_list.c\
 	ft_free.c\
 	ft_move_tetris.c\
-	ft_solver_tools.c \
+	ft_solver_tools.c\
+	ft_to_letter.c\
+	ft_solver.c\
 #	printer.c
 OBJ = $(SRC:.c=.o)
 CC = gcc

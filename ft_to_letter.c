@@ -1,27 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_free.c                                          :+:      :+:    :+:   */
+/*   ft_to_letter.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: gnegri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2017/11/16 15:32:22 by gnegri            #+#    #+#             */
-/*   Updated: 2017/11/16 15:32:23 by gnegri           ###   ########.fr       */
+/*   Created: 2017/11/17 12:39:52 by gnegri            #+#    #+#             */
+/*   Updated: 2017/11/17 12:39:55 by gnegri           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "libft/libft.h"
 
-void	ft_free_tab(char **tab_tetris)
+void	ft_to_letter(t_tetris *first)
 {
-	int i;
-	//int	j;
+	int 	i;
+	char	*str;
 
-	i = 2;
-	//j = 0;
-	//while (tab_tetris[j++] != NULL)
-	while (tab_tetris[i] != '\0')
-		ft_strdel(&tab_tetris[i++]);
-	ft_strdel(&tab_tetris[i]);
+	i = 0;
+	if (first->tetris != NULL)
+	{	
+		str = first->tetris;
+		while(str[i] != '\0')
+		{
+			if (str[i] == '#')
+				str[i] = first->letter;
+			i++;
+		}
+		first->tetris = str;
+	}
 }

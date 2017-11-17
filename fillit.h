@@ -29,11 +29,22 @@ typedef struct			s_tetris
 	struct s_tetris 	*next;
 }						t_tetris;
 
+typedef struct			s_tetrim
+{
+	char				**tetris;
+	char				letter;
+	int					x;
+	int					y;
+	struct s_tetris 	*next;
+}						t_tetrim;
+
 char		**ft_reader(char *av);
 int			ft_checker(char **tab_tetris);
 t_tetris	*ft_create_list(char **tab_tetris);
 void		ft_free_tab(char **tab_tetris);
-void	ft_move_tetris(t_tetris *list_tetris);
-int		ft_solver_tools(int num_tetris);
+void		ft_move_tetris(t_tetris *list_tetris);
+char		*ft_solver_tools(int num_tetris);
+void		ft_to_letter(t_tetris *first);
+char		*ft_solver(t_tetris *tetrimino, int num_tetris);
 
 #endif

@@ -19,11 +19,16 @@ char	*ft_create_grid(int size_square)
 	char	*grid;
 
 	i = 0;
-	grid = ft_memalloc(sizeof(char) * (size_square + 1));
+	grid = ft_memalloc(sizeof(char) * ((size_square * size_square) + size_square + 1));
 	if (grid == NULL)
 		return (NULL);
-	while (i < size_square)
+	while (i < (size_square * size_square + size_square))
 	{
+		if (i % (size_square + 1) == 0)
+		{
+			grid[i] = '\n';
+			i++;
+		}
 		grid[i] = '.';
 		i++;
 	}
@@ -33,25 +38,22 @@ char	*ft_create_grid(int size_square)
 
 int		ft_sqrt(int nb)
 {
-	int i;
+	int 	i;
 
 	i = 1;
 	if (nb <= 0)
 		return (0);
 	while ((i * i) < nb)
 		i++;
-	if ((i * i) > nb)
-		return (0);
 	return (i);
 }
 
-int		ft_solver_tools(int num_tetris)
+char	*ft_solver_tools(int num_tetris)
 {
-	int	min_square;
+	int		min_square;
+	char	*grid;
 
 	min_square = ft_sqrt(num_tetris * 4);
-	ft_putstr(ft_create_grid(min_square));
-	return (0);
+	grid = ft_create_grid(min_square);
+	return (grid);
 }
-
-

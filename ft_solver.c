@@ -10,25 +10,64 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "fillit.h"
+#include "libft/libft.h"
 
-int		ft_sqrt(int nb)
+char	*ft_put_in_grid(t_tetris *tetris, char *solved_grid)
 {
-	int i;
+	int			i;
+	int			c;
+	t_tetris	*piece;
+	char		*str;
 
-	i = 1;
-	if (nb <= 0)
-		return (0);
-	while ((i * i) < nb)
-		i++;
-	if ((i * i) > nb)
-		return (0);
-	return (i);
+	i = 0;
+	c = 0;
+	piece = tetris;
+	str = piece->tetris;
+	while (solved_grid[c] != '\n')
+		c++;
+/*	if (ft_check_tetris() == 0)
+	{
+		*/
+		while (str[i] != '\0')
+		{
+			if (str[i] != '.' && str[i] != '\n' && str[i] != '\0')
+			{
+				if (i == 0 && str[i] != '.' && str[i] != '\n' && str[i] != '\0')
+				{
+					solved_grid[i] = str[i];
+					str[i] = piece->letter;
+					i++;
+				}
+				else
+				{
+					str[i] = solved_grid[i + (c - 4)];
+					str[i] = piece->letter;
+				}
+			}
+			ft_putchar(str[i]);
+			i++;
+		}
+//	}
+	return (solved_grid);
 }
 
-int		ft_min_square(int num_tetris)
+char	*ft_solver(t_tetris *tetris, int num_tetris)
 {
-	int	min_square;
+	char	*solved_grid;
 
-	min_square = ft_sqrt(num_tetris * 4);
-	return (min_square);
+	if (!tetris)
+		return (0);
+	solved_grid = ft_solver_tools(num_tetris);
+	solved_grid = ft_put_in_grid(tetris, solved_grid);
+	ft_putchar('\n');
+	ft_putchar('\n');
+	ft_putstr(solved_grid);
+
+	return (solved_grid);
+	/*premiere piece en haut a gquche
+	placement
+	si ca marche pas avec valeur erreur reset
+	solved_grid renvoie si ok
+	free grid*/
 }
