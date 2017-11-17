@@ -6,12 +6,20 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 11:28:01 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/17 11:50:18 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/17 16:13:58 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft/libft.h"
+
+char	**ft_split_grid(char *grid)
+{
+	char **real_grid;
+
+	real_grid = ft_strsplit(grid, '\n');
+	return (real_grid);
+}
 
 char	*ft_create_grid(int size_square)
 {
@@ -48,12 +56,12 @@ int		ft_sqrt(int nb)
 	return (i);
 }
 
-char	*ft_solver_tools(int num_tetris)
+char	**ft_solver_tools(int num_tetris)
 {
 	int		min_square;
-	char	*grid;
+	char	**grid;
 
 	min_square = ft_sqrt(num_tetris * 4);
-	grid = ft_create_grid(min_square);
+	grid = ft_split_grid(ft_create_grid(min_square));
 	return (grid);
 }
