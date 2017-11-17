@@ -34,6 +34,7 @@ int	main(int ac, char **av)
 	while (first != NULL)
 	{
 		printf("%s\n", first->tetris);
+		printf("\n");
 		first = first->next;
 	}
 //	while (i < 5)

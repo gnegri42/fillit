@@ -27,7 +27,6 @@ char	*ft_move_up(char *str)
 		if (str[i] == '#')
 		{
 			decal = i / 5;
-			//printf("%d\n", decal);
 			i = 20;
 		}
 		i++;
@@ -37,7 +36,7 @@ char	*ft_move_up(char *str)
 	{
 		if (str[i] == '#')
 		{
-			str[i - 5] = str[i];
+			str[i - (5 * decal)] = str[i];
 			str[i] = '.';
 		}
 		i++;
@@ -66,7 +65,6 @@ char	*ft_move_left(char *str)
 	i = 0;
 	while (str[i] != '\0' && decal > 0)
 	{
-		printf("%d\n", decal);
 		if (str[i] == '#')
 		{
 			str[i - decal] = str[i];
