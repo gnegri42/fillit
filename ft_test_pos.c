@@ -6,19 +6,29 @@
 /*   By: gnegri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 16:39:49 by gnegri            #+#    #+#             */
-/*   Updated: 2017/11/17 16:39:50 by gnegri           ###   ########.fr       */
+/*   Updated: 2017/11/17 18:51:30 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
-#include "libft/libft/h"
+#include "libft/libft.h"
 
-int		ft_test_pos(char **solved_grid, t_tetrim *begin_list, int num_tetris)
+int		ft_test_pos(char **solved_grid, t_tetrim *begin_list, int size_grid)
 {
-	int		min_square;
-	int		i;
+	int	i;
+	int	j;
 
-	min_square = ft_sqrt(num_tetris * 4);
 	i = 0;
-	
+	j = 0;
+	while (i < 4)
+	{
+		while (j < 4)
+		{
+			// C EST QUOI LA PUTAIN DE CONDITION ??????????????
+			j++;
+		}
+		i++;
+		j = 0;
+	}
+	return (1);
 }

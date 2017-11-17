@@ -6,7 +6,7 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:11:56 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/17 16:15:00 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/17 18:50:32 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,5 +48,7 @@ void		ft_to_letter(t_tetris *first);
 char		**ft_solver(t_tetrim *begin_list, int num_tetris);
 t_tetrim	*ft_create_list2(t_tetris first, int nb_tetris);
 int			ft_sqrt(int nb);
+int			ft_test_pos(char **solved_grid, t_tetrim *begin_list, int size_grid);
+void		ft_print_result(char **solved_grid);
 
 #endif
