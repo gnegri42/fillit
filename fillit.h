@@ -47,5 +47,6 @@ char		**ft_solver_tools(int num_tetris);
 void		ft_to_letter(t_tetris *first);
 char		**ft_solver(t_tetrim *begin_list, int num_tetris);
 t_tetrim	*ft_create_list2(t_tetris first, int nb_tetris);
+int			ft_sqrt(int nb);
 
 #endif
