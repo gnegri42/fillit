@@ -12,7 +12,7 @@
 
 #include "fillit.h"
 #include "libft/libft.h"
-
+#include <stdio.h>
 int		ft_test_pos(char **solved_grid, t_tetrim *begin_list, int size_grid)
 {
 	int	i;
@@ -24,7 +24,12 @@ int		ft_test_pos(char **solved_grid, t_tetrim *begin_list, int size_grid)
 	{
 		while (j < 4)
 		{
-			// C EST QUOI LA PUTAIN DE CONDITION ??????????????
+			if (ft_isalpha(begin_list->tetrim[i][j]) == 1)
+					if ((begin_list->y + i) >= size_grid || (begin_list->x + j) >= size_grid)
+						return (0);
+			if (ft_isalpha(begin_list->tetrim[i][j]) == 1)
+				if (ft_isalpha(solved_grid[begin_list->y + i][begin_list->x + j] == 1))
+						return (0);
 			j++;
 		}
 		i++;

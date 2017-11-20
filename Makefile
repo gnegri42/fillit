@@ -23,7 +23,8 @@ SRC = main.c \
 	ft_solver.c\
 	ft_create_list2.c\
 	ft_test_pos.c\
-	ft_printer.c
+	ft_printer.c\
+	
 OBJ = $(SRC:.c=.o)
 CC = gcc
 FLAGS = -Wall -Wextra -Werror

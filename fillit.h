@@ -48,8 +48,9 @@ void		ft_to_letter(t_tetris *first);
 char		**ft_solver(t_tetrim *begin_list, int num_tetris);
 t_tetrim	*ft_create_list2(t_tetris first, int nb_tetris);
 int			ft_sqrt(int nb);
-int			ft_test_pos(char **solved_grid, t_tetrim *begin_list,
-	int size_grid);
+int			ft_test_pos(char **solved_grid, t_tetrim *begin_list, int size_grid);
 void		ft_print_result(char **solved_grid);
+char		*ft_create_grid(int size_square);
+char		**ft_split_grid(char *grid);
 
 #endif

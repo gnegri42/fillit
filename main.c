@@ -32,7 +32,7 @@ int		main(int ac, char **av)
 	char		**tab_tetris;
 	t_tetris	*first;
 	t_tetris	*tmp;
-	char		**grid_solved;
+	char		**solved_grid;
 	t_tetrim	*begin_list;
 
 	if (ac != 2)
@@ -50,13 +50,13 @@ int		main(int ac, char **av)
 	while (first != NULL)
 	{
 		ft_to_letter(first);
-		//printf("%s\n", first->tetris);
-		//printf("\n");
+		printf("%s\n", first->tetris);
+		printf("\n");
 		first = first->next;
 	}
 	first = tmp;
 	begin_list = ft_create_list2(*first, ft_tetris_nb(first));
-	grid_solved = ft_solver(begin_list, ft_tetris_nb(first));
-	ft_print_result(grid_solved);
+	solved_grid = ft_solver(begin_list, ft_tetris_nb(first));
+	ft_print_result(solved_grid);
 	return (0);
 }

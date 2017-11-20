@@ -21,6 +21,7 @@ void	ft_print_result(char **solved_grid)
 	while (solved_grid[i] != NULL)
 	{
 		ft_putstr(solved_grid[i]);
+		ft_putchar('\n');
 		i++;
 	}
 }

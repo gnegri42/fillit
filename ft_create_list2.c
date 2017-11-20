@@ -27,6 +27,7 @@ t_tetrim	*ft_new_list2(char **str, int num_tetris)
 	new_elem->y = 0;
 	new_elem->next = NULL;
 	return (new_elem);
+	//Les coordonnées de chaque pièce c'est 0, 0 non? =S
 }
 
 t_tetrim	*ft_create_list2(t_tetris first, int nb_tetris)
