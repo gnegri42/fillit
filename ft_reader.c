@@ -13,7 +13,7 @@
 #include "fillit.h"
 #include "libft/libft.h"
 
-char	**ft_fill_tab(char **tab_tetris, int num_tetris, char *str)
+char			**ft_fill_tab(char **tab_tetris, int num_tetris, char *str)
 {
 	int			i;
 	int			j;
@@ -24,7 +24,7 @@ char	**ft_fill_tab(char **tab_tetris, int num_tetris, char *str)
 	k = 0;
 	while (j < num_tetris)
 	{
-		tab_tetris[j] = (char *)malloc(sizeof (char) * 21);
+		tab_tetris[j] = (char *)malloc(sizeof(char) * 21);
 		if (tab_tetris[j] == NULL)
 			return (0);
 		while (k < 19)
@@ -41,12 +41,12 @@ char	**ft_fill_tab(char **tab_tetris, int num_tetris, char *str)
 	}
 	tab_tetris[j] = NULL;
 	return (tab_tetris);
-}	
+}
 
-int		ft_count_tetris(char *str)
+int				ft_count_tetris(char *str)
 {
-	int 		i;
-	int 		num_tetris;
+	int			i;
+	int			num_tetris;
 
 	i = 0;
 	num_tetris = 0;
@@ -59,7 +59,7 @@ int		ft_count_tetris(char *str)
 	return (num_tetris);
 }
 
-char 	**ft_create_tab(char *str)
+char			**ft_create_tab(char *str)
 {
 	int			num_tetris;
 	char		**tab_tetris;
@@ -71,14 +71,14 @@ char 	**ft_create_tab(char *str)
 	if (tab_tetris == NULL)
 		return (0);
 	ft_fill_tab(tab_tetris, num_tetris, str);
-	return(tab_tetris);
+	return (tab_tetris);
 }
 
 char	**ft_reader(char *av)
 {
 	char		*str;
 	int			fd;
-	int 		len;
+	int			len;
 	char		buf[BUF_SIZE + 1];
 
 	len = 0;

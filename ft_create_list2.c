@@ -26,7 +26,6 @@ t_tetrim	*ft_new_list2(char **str, int num_tetris)
 	new_elem->x = 0;
 	new_elem->y = 0;
 	new_elem->next = NULL;
-	
 	return (new_elem);
 }
 
@@ -43,7 +42,7 @@ t_tetrim	*ft_create_list2(t_tetris first, int nb_tetris)
 	tmp = begin_list;
 	while (i < nb_tetris)
 	{
-		tmp->next = (ft_new_list2(ft_strsplit(first.tetris, '\n'),i));
+		tmp->next = (ft_new_list2(ft_strsplit(first.tetris, '\n'), i));
 		tmp = tmp->next;
 		i++;
 	}

@@ -42,7 +42,7 @@ t_tetris	*ft_create_list(char **tab_tetris)
 	ptr = NULL;
 	first = NULL;
 	num_tetris = 0;
-	while(tab_tetris[i++] != NULL)
+	while (tab_tetris[i++] != NULL)
 		num_tetris++;
 	i = 0;
 	first = ft_new_list(tab_tetris[0], i);

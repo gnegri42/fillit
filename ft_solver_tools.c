@@ -27,7 +27,8 @@ char	*ft_create_grid(int size_square)
 	char	*grid;
 
 	i = 0;
-	grid = ft_memalloc(sizeof(char) * ((size_square * size_square) + size_square + 1));
+	grid = ft_memalloc(sizeof(char) * ((size_square * size_square)
+		+ size_square + 1));
 	if (grid == NULL)
 		return (NULL);
 	while (i < (size_square * size_square + size_square))
@@ -46,7 +47,7 @@ char	*ft_create_grid(int size_square)
 
 int		ft_sqrt(int nb)
 {
-	int 	i;
+	int		i;
 
 	i = 1;
 	if (nb <= 0)

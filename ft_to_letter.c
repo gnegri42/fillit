@@ -14,14 +14,14 @@
 
 void	ft_to_letter(t_tetris *first)
 {
-	int 	i;
+	int		i;
 	char	*str;
 
 	i = 0;
 	if (first->tetris != NULL)
-	{	
+	{
 		str = first->tetris;
-		while(str[i] != '\0')
+		while (str[i] != '\0')
 		{
 			if (str[i] == '#')
 				str[i] = first->letter;

@@ -13,12 +13,12 @@
 #ifndef FILLIT_H
 # define FILLIT_H
 
-#include "libft/libft.h"
-#include <sys/types.h>
-#include <sys/stat.h>
-#include <fcntl.h>
+# include "libft/libft.h"
+# include <sys/types.h>
+# include <sys/stat.h>
+# include <fcntl.h>
 
-#define BUF_SIZE 4096
+# define BUF_SIZE 4096
 
 typedef struct			s_tetris
 {
@@ -48,7 +48,8 @@ void		ft_to_letter(t_tetris *first);
 char		**ft_solver(t_tetrim *begin_list, int num_tetris);
 t_tetrim	*ft_create_list2(t_tetris first, int nb_tetris);
 int			ft_sqrt(int nb);
-int			ft_test_pos(char **solved_grid, t_tetrim *begin_list, int size_grid);
+int			ft_test_pos(char **solved_grid, t_tetrim *begin_list,
+	int size_grid);
 void		ft_print_result(char **solved_grid);
 
 #endif

@@ -89,7 +89,9 @@ char	**ft_solver(t_tetrim *begin_list, int num_tetris)
 	{
 		size_grid++;
 		//free l ancien tableau ?
-		solved_grid = ft_solver_tools(ft_search(begin_list, size_grid, solved_grid));
+		solved_grid = ft_solver_tools(
+			ft_search(begin_list, size_grid, solved_grid));
+		//Attention à ce qu on envoit à ft_solvert_tools!
 	}
-	return (solved_grid);	
+	return (solved_grid);
 }

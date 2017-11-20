@@ -24,12 +24,12 @@ int		ft_tetris_nb(t_tetris *first)
 		first = first->next;
 		i++;
 	}
-	return (i - 1);	
+	return (i - 1);
 }
 
 int		main(int ac, char **av)
 {
-	char 		**tab_tetris;
+	char		**tab_tetris;
 	t_tetris	*first;
 	t_tetris	*tmp;
 	char		**grid_solved;

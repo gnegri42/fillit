@@ -37,7 +37,7 @@ int		ft_check_shape(char *str)
 					j++;
 				}
 			}
-			if (str[i + 1] != '#' && str[i - 1] != '#' 
+			if (str[i + 1] != '#' && str[i - 1] != '#'
 				&& str[i + 5] != '#' && str[i - 5] != '#')
 				return (0);
 		}
@@ -56,7 +56,7 @@ int		ft_check_line(char *str)
 	a = 0;
 	val = 4;
 	while (str[i] != '\0')
-	{	
+	{
 		if (str[i] == '.' || str[i] == '#')
 			a++;
 		if (a > 4)
@@ -110,7 +110,7 @@ int		ft_checker(char **tab_tetris)
 	num_tetris = 0;
 	if (tab_tetris[0] == NULL)
 		return (0);
-	while(tab_tetris[j++] != NULL)
+	while (tab_tetris[j++] != NULL)
 		num_tetris++;
 	num_tetris = num_tetris - 1;
 	while (i <= num_tetris)
