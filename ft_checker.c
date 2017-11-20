@@ -6,14 +6,14 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 17:17:07 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/15 17:17:11 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/20 20:09:31 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft/libft.h"
 
-int		ft_check_shape(char *str)
+static int	ft_check_shape(char *str)
 {
 	int i;
 	int j;
@@ -46,7 +46,7 @@ int		ft_check_shape(char *str)
 	return (1);
 }
 
-int		ft_check_line(char *str)
+static int	ft_check_line(char *str)
 {
 	int i;
 	int a;
@@ -71,7 +71,7 @@ int		ft_check_line(char *str)
 	return (1);
 }
 
-int		ft_check_char(char *str)
+static int	ft_check_char(char *str)
 {
 	int	i;
 	int	hashtag;
@@ -99,7 +99,7 @@ int		ft_check_char(char *str)
 	return (1);
 }
 
-int		ft_checker(char **tab_tetris)
+int			ft_checker(char **tab_tetris)
 {
 	int	i;
 	int j;

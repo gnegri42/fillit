@@ -6,13 +6,13 @@
 /*   By: gnegri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 15:46:44 by gnegri            #+#    #+#             */
-/*   Updated: 2017/11/16 15:46:53 by gnegri           ###   ########.fr       */
+/*   Updated: 2017/11/20 20:10:04 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 
-t_tetris	*ft_new_list(char *str, int num_tetris)
+static t_tetris	*ft_new_list(char *str, int num_tetris)
 {
 	t_tetris	*new_elem;
 
@@ -31,7 +31,7 @@ t_tetris	*ft_new_list(char *str, int num_tetris)
 	return (new_elem);
 }
 
-t_tetris	*ft_create_list(char **tab_tetris)
+t_tetris		*ft_create_list(char **tab_tetris)
 {
 	int			i;
 	int			num_tetris;

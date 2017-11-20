@@ -6,17 +6,17 @@
 /*   By: gnegri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 16:49:43 by gnegri            #+#    #+#             */
-/*   Updated: 2017/11/16 16:49:45 by gnegri           ###   ########.fr       */
+/*   Updated: 2017/11/20 20:11:28 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft/libft.h"
 
-char		*ft_move_up(char *str)
+static char	*ft_move_up(char *str)
 {
-	int 	i;
-	int 	decal;
+	int	i;
+	int	decal;
 
 	i = 0;
 	decal = 0;
@@ -44,10 +44,10 @@ char		*ft_move_up(char *str)
 	return (str);
 }
 
-char		*ft_move_left(char *str)
+static char	*ft_move_left(char *str)
 {
-	int 	i;
-	int 	decal;
+	int	i;
+	int	decal;
 
 	i = 0;
 	decal = 0;
@@ -86,5 +86,4 @@ void		ft_move_tetris(t_tetris *first)
 		ptr->tetris = ft_move_up(ptr->tetris);
 		ptr = ptr->next;
 	}
-	//return (first);
 }

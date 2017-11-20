@@ -6,14 +6,14 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/17 15:07:42 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/17 16:26:31 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/20 20:10:20 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft/libft.h"
 
-t_tetrim	*ft_new_list2(char **str, int num_tetris)
+static t_tetrim	*ft_new_list2(char **str, int num_tetris)
 {
 	t_tetrim	*new_elem;
 
@@ -27,10 +27,9 @@ t_tetrim	*ft_new_list2(char **str, int num_tetris)
 	new_elem->y = 0;
 	new_elem->next = NULL;
 	return (new_elem);
-	//Les coordonnées de chaque pièce c'est 0, 0 non? =S
 }
 
-t_tetrim	*ft_create_list2(t_tetris first, int nb_tetris)
+t_tetrim		*ft_create_list2(t_tetris first, int nb_tetris)
 {
 	int			i;
 	t_tetrim	*begin_list;
@@ -43,6 +42,7 @@ t_tetrim	*ft_create_list2(t_tetris first, int nb_tetris)
 	tmp = begin_list;
 	while (i < nb_tetris)
 	{
+		first = *first.next;
 		tmp->next = (ft_new_list2(ft_strsplit(first.tetris, '\n'), i));
 		tmp = tmp->next;
 		i++;

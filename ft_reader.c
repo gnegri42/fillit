@@ -6,14 +6,14 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 17:00:51 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/17 11:32:31 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/20 20:11:49 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft/libft.h"
 
-char			**ft_fill_tab(char **tab_tetris, int num_tetris, char *str)
+static char	**ft_fill_tab(char **tab_tetris, int num_tetris, char *str)
 {
 	int			i;
 	int			j;
@@ -43,7 +43,7 @@ char			**ft_fill_tab(char **tab_tetris, int num_tetris, char *str)
 	return (tab_tetris);
 }
 
-int				ft_count_tetris(char *str)
+static int	ft_count_tetris(char *str)
 {
 	int			i;
 	int			num_tetris;
@@ -59,7 +59,7 @@ int				ft_count_tetris(char *str)
 	return (num_tetris);
 }
 
-char			**ft_create_tab(char *str)
+static char	**ft_create_tab(char *str)
 {
 	int			num_tetris;
 	char		**tab_tetris;
@@ -74,7 +74,7 @@ char			**ft_create_tab(char *str)
 	return (tab_tetris);
 }
 
-char	**ft_reader(char *av)
+char		**ft_reader(char *av)
 {
 	char		*str;
 	int			fd;
