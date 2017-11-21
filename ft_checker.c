@@ -6,51 +6,44 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 17:17:07 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/21 17:04:54 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/21 17:30:43 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft/libft.h"
 
-static int	ft_check_shape_next(char *str, int i, int j, int c)
+static int	ft_check_shape_next(char *str, int i)
 {
+	int	c;
+
+	c = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '#')
 		{
-			if (str[i + 1] == '#' && str[i + 2] == '.' && str[i + 3] == '#')
-				return (5);
-			c++;
-			if (c == 2)
-			{
-				j = i + 1;
-				while (str[j] != '#' && str[j] != '\0')
-				{
-					if (j > (i + 4))
-						return (5);
-					j++;
-				}
-			}
-			if (str[i + 1] != '#' && str[i - 1] != '#'
-					&& str[i + 5] != '#' && str[i - 5] != '#')
-				return (5);
+			if (str[i + 1] == '#')
+				c++;
+			if (str[i - 1] == '#')
+				c++;
+			if (str[i + 5] == '#')
+				c++;
+			if (str[i - 5] == '#')
+				c++;
 		}
 		i++;
 	}
+	if (c < 6)
+		return (5);
 	return (0);
 }
 
 static int	ft_check_shape(char *str)
 {
 	int i;
-	int j;
-	int c;
 
 	i = 0;
-	j = 0;
-	c = 0;
-	if (ft_check_shape_next(str, i, j, c) == 5)
+	if (ft_check_shape_next(str, i) == 5)
 		return (0);
 	else
 		return (1);

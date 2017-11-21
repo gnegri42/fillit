@@ -6,7 +6,7 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 17:00:51 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/21 17:05:23 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/21 17:08:02 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ char		*ft_reader(char *av)
 	str = (char *)malloc(sizeof(char) * len);
 	if (str == NULL)
 		return (0);
-	memcpy(str, buf, len);
+	ft_memcpy(str, buf, len);
 	close(fd);
 	if (ft_first_check(buf) == 0)
 	{
