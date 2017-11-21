@@ -6,7 +6,7 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 17:00:51 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/21 11:55:59 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/21 17:05:23 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,13 +27,13 @@ static char	**ft_fill_tab(char **tab_tetris, int num_tetris, char *str)
 		tab_tetris[j] = (char *)malloc(sizeof(char) * 21);
 		if (tab_tetris[j] == NULL)
 			return (0);
-		while (k < 19)
+		while (k < 20)
 		{
 			tab_tetris[j][k] = str[i];
 			k++;
 			i++;
 		}
-		i = i + 2;
+		i = i + 1;
 		tab_tetris[j][k] = '\0';
 		j++;
 		k = 0;
@@ -58,7 +58,7 @@ static int	ft_count_tetris(char *str)
 	return (num_tetris);
 }
 
-static char	**ft_create_tab(char *str)
+char		**ft_create_tab(char *str)
 {
 	int			num_tetris;
 	char		**tab_tetris;
@@ -73,7 +73,31 @@ static char	**ft_create_tab(char *str)
 	return (tab_tetris);
 }
 
-char		**ft_reader(char *av)
+static int	ft_first_check(char *buf)
+{
+	int			i;
+	int			count;
+
+	i = 0;
+	count = 0;
+	while (buf[i] != '\0')
+	{
+		if (buf[i] == '\n')
+			count++;
+		if (count == 4)
+		{
+			if (buf[i + 1] != '\n' && buf[i + 1] != '\0')
+				return (0);
+			if (buf[i] == '\n')
+				i++;
+			count = 0;
+		}
+		i++;
+	}
+	return (1);
+}
+
+char		*ft_reader(char *av)
 {
 	char		*str;
 	int			fd;
@@ -89,5 +113,10 @@ char		**ft_reader(char *av)
 		return (0);
 	memcpy(str, buf, len);
 	close(fd);
-	return (ft_create_tab(str));
+	if (ft_first_check(buf) == 0)
+	{
+		ft_strclr(str);
+		return (str);
+	}
+	return (str);
 }

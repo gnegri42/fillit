@@ -6,7 +6,7 @@
 #    By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2017/11/15 11:22:23 by bmuselet          #+#    #+#              #
-#    Updated: 2017/11/20 19:52:02 by bmuselet         ###   ########.fr        #
+#    Updated: 2017/11/21 14:54:06 by bmuselet         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,8 +23,10 @@ SRC = main.c \
 	ft_create_list2.c\
 	ft_test_pos.c\
 	ft_printer.c\
-	
+
 OBJ = $(SRC:.c=.o)
+INC = fillit.h\
+	  libft.h
 CC = gcc
 FLAGS = -Wall -Wextra -Werror
 

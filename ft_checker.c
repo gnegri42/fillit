@@ -6,7 +6,7 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 17:17:07 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/21 12:18:19 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/21 17:04:54 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,13 +19,15 @@ static int	ft_check_shape_next(char *str, int i, int j, int c)
 	{
 		if (str[i] == '#')
 		{
+			if (str[i + 1] == '#' && str[i + 2] == '.' && str[i + 3] == '#')
+				return (5);
 			c++;
 			if (c == 2)
 			{
 				j = i + 1;
 				while (str[j] != '#' && str[j] != '\0')
 				{
-					if (j > (i + 5))
+					if (j > (i + 4))
 						return (5);
 					j++;
 				}
@@ -102,7 +104,7 @@ static int	ft_check_char(char *str)
 			return (0);
 		i++;
 	}
-	if (i != 20 && point != 12 && hashtag != 4 && back_n != 4)
+	if (i != 20 || point != 12 || hashtag != 4 || back_n != 4)
 		return (0);
 	return (1);
 }
