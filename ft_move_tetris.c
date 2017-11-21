@@ -6,12 +6,29 @@
 /*   By: gnegri <marvin@42.fr>                      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/16 16:49:43 by gnegri            #+#    #+#             */
-/*   Updated: 2017/11/20 20:11:28 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/21 11:47:46 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft/libft.h"
+
+static char	*ft_move_up_next(char *str, int decal)
+{
+	int i;
+
+	i = 0;
+	while (str[i] != '\0' && decal > 0)
+	{
+		if (str[i] == '#')
+		{
+			str[i - (5 * decal)] = str[i];
+			str[i] = '.';
+		}
+		i++;
+	}
+	return (str);
+}
 
 static char	*ft_move_up(char *str)
 {
@@ -31,12 +48,20 @@ static char	*ft_move_up(char *str)
 		}
 		i++;
 	}
+	str = ft_move_up_next(str, decal);
+	return (str);
+}
+
+static char	*ft_move_left_next(char *str, int decal)
+{
+	int i;
+
 	i = 0;
 	while (str[i] != '\0' && decal > 0)
 	{
 		if (str[i] == '#')
 		{
-			str[i - (5 * decal)] = str[i];
+			str[i - decal] = str[i];
 			str[i] = '.';
 		}
 		i++;
@@ -62,16 +87,7 @@ static char	*ft_move_left(char *str)
 			decal++;
 		i++;
 	}
-	i = 0;
-	while (str[i] != '\0' && decal > 0)
-	{
-		if (str[i] == '#')
-		{
-			str[i - decal] = str[i];
-			str[i] = '.';
-		}
-		i++;
-	}
+	str = ft_move_left_next(str, decal);
 	return (str);
 }
 

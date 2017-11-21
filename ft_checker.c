@@ -6,22 +6,15 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 17:17:07 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/20 20:09:31 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/21 12:18:19 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft/libft.h"
 
-static int	ft_check_shape(char *str)
+static int	ft_check_shape_next(char *str, int i, int j, int c)
 {
-	int i;
-	int j;
-	int c;
-
-	i = 0;
-	j = 0;
-	c = 0;
 	while (str[i] != '\0')
 	{
 		if (str[i] == '#')
@@ -33,17 +26,32 @@ static int	ft_check_shape(char *str)
 				while (str[j] != '#' && str[j] != '\0')
 				{
 					if (j > (i + 5))
-						return (0);
+						return (5);
 					j++;
 				}
 			}
 			if (str[i + 1] != '#' && str[i - 1] != '#'
-				&& str[i + 5] != '#' && str[i - 5] != '#')
-				return (0);
+					&& str[i + 5] != '#' && str[i - 5] != '#')
+				return (5);
 		}
 		i++;
 	}
-	return (1);
+	return (0);
+}
+
+static int	ft_check_shape(char *str)
+{
+	int i;
+	int j;
+	int c;
+
+	i = 0;
+	j = 0;
+	c = 0;
+	if (ft_check_shape_next(str, i, j, c) == 5)
+		return (0);
+	else
+		return (1);
 }
 
 static int	ft_check_line(char *str)

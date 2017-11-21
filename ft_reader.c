@@ -6,7 +6,7 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 17:00:51 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/20 20:11:49 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/21 11:55:59 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,8 @@ static char	**ft_fill_tab(char **tab_tetris, int num_tetris, char *str)
 			k++;
 			i++;
 		}
-		i++;
+		i = i + 2;
 		tab_tetris[j][k] = '\0';
-		i++;
 		j++;
 		k = 0;
 	}
