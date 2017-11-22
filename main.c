@@ -37,14 +37,14 @@ int		main(int ac, char **av)
 
 	if (ac != 2)
 	{
-		ft_putstr("usage : fillit target_file\n");
+		ft_putstr("usage: fillit source_file\n");
 		return (0);
 	}
 	str = ft_reader(av[1]);
 	tab_tetris = ft_create_tab(str);
 	if (tab_tetris == NULL || (ft_checker(tab_tetris)) == 0)
 	{
-		ft_putstr("error");
+		ft_putstr("error\n");
 		return (0);
 	}
 	first = ft_create_list(tab_tetris);
