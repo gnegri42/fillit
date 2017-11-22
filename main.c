@@ -6,13 +6,12 @@
 /*   By: bmuselet <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2017/11/15 12:06:06 by bmuselet          #+#    #+#             */
-/*   Updated: 2017/11/21 17:05:25 by bmuselet         ###   ########.fr       */
+/*   Updated: 2017/11/22 11:40:44 by bmuselet         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fillit.h"
 #include "libft/libft.h"
-#include <stdio.h>
 
 int		ft_tetris_nb(t_tetris *first)
 {
